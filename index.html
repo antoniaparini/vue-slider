@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <link href="https://fonts.googleapis.com/css2?family=Lato:wght@400;700&display=swap" rel="stylesheet">
+    <link href="https://use.fontawesome.com/releases/v5.5.0/css/all.css" rel="stylesheet">
+    <link rel="stylesheet" href="./css/styles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>VUE SLIDER</title>
+</head>
+<body>
+    <div id="app">
+        <!--SLIDER-->
+        <div class="slider" 
+
+        @mouseenter="stopLoop" 
+        @mouseleave="startLoop" 
+        @keyup.arrow-left="prevPhoto" 
+        @keyup.arrow-right="nextPhoto" tabindex="0">
+
+        <!--ARROW LEFT-->
+            <div class="prev" @click="prevPhoto">
+                <i class="fas fa-arrow-left"></i>
+            </div>
+
+        <!--IMAGES-->
+            <div class="images">
+                <img :src="photos[indexPhoto]" alt="photo lorem">
+            </div>
+
+        <!--ARROW RIGHT-->
+            <div class="next" @click="nextPhoto">
+                <i class="fas fa-arrow-right"></i>
+            </div>
+
+        <!--BULLETS-->
+    
+            <div class="nav">
+                <i v-for="(photo, index) in photos" :class="['fas fa-circle', index == indexPhoto ? 'active' : '']" @click="setPhoto(index)"></i>
+            </div>
+
+        </div>
+    </div>
+</body>
+
+    <!--VUE JS-->
+    <script src="https://cdn.jsdelivr.net/npm/vue@2"></script>
+    <!--JS-->
+    <script src="./js/main.js"></script>
+</body>
+</html>
